@@ -574,7 +574,7 @@ def stylize(content_img, style_imgs, init_img, frame=None):
     L_total += theta * L_tv
     
     # video temporal loss
-    if args.video and frame > 1:
+    if args.video and frame > args.start_frame:
       gamma      = args.temporal_weight
       L_temporal = sum_shortterm_temporal_losses(sess, net, frame, init_img)
       L_total   += gamma * L_temporal

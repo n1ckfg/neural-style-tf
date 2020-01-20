@@ -829,7 +829,7 @@ def render_video():
   for frame in range(args.start_frame, args.end_frame+1):
     with tf.Graph().as_default():
       print('\n---- RENDERING VIDEO FRAME: {}/{} ----\n'.format(frame, args.end_frame))
-      if frame == 1:
+      if frame == args.start_frame:
         content_frame = get_content_frame(frame)
         style_imgs = get_style_images(content_frame)
         init_img = get_init_image(args.first_frame_type, content_frame, style_imgs, frame)
